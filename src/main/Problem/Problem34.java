@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+// 剑指 Offer 53 - I. 在排序数组中查找数字 I
+// 34. 在排序数组中查找元素的第一个和最后一个位置
 class Problem34 {
 
     public int solutionNum = 1;

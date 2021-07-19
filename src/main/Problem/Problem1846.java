@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+// 1846. 减小和重新排列数组后的最大元素
 class Problem1846 {
 
     public int solutionNum = 2;
