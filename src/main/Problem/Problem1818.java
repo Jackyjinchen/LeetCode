@@ -4,32 +4,30 @@ import java.util.Arrays;
 public class Problem1818 {
     public int solutionNum = 3;
 
-    int[] nums1 = {1,28,21};
-    int[] nums2 = {9,21,20};
+    int[] nums1 = {1, 28, 21};
+    int[] nums2 = {9, 21, 20};
 
     public int solution1(int[] nums1, int[] nums2) {
-        int max = 0, maxpos = 0;
+        final int MOD = 1000000007;
+        int max = 0;
         int temp;
         int res = 0;
-        for (int i = 0; i < nums1.length; i++) {
+        int n = nums1.length;
+        int[] numsCopy = new int[n];
+        System.arraycopy(nums1, 0, numsCopy, 0, n);
+        Arrays.sort(numsCopy);
+        for (int i = 0; i < n; i++) {
             temp = Math.abs(nums1[i] - nums2[i]);
-            res += temp;
-            if (temp > max) {
-                max = temp;
-                maxpos = i;
-            }
+            res = (res + temp) % MOD;
+
+            max = Math.max(max, temp - lower_bound(numsCopy, nums2[i]));
+
         }
-        System.out.println("总和为：" + res);
-        Arrays.sort(nums1);
-        int bound = lower_bound(nums1, nums2[maxpos]);
-        System.out.println("bound:" + bound);
-        System.out.println(res - max + bound);
-        return (res - max + bound) % ((int) Math.pow(10, 9) + 7);
+        return (res - max + MOD) % MOD;
     }
 
     public int lower_bound(int[] nums, int target) {
-        int res;
-        int pre = 0, pos = nums.length;
+        int pre = 0, pos = nums.length - 1;
         while (pre < pos) {
             int mid = pre + (pos - pre) / 2;
             if (nums[mid] < target) {
@@ -43,7 +41,6 @@ public class Problem1818 {
         } else {
             return Math.min(Math.abs(target - nums[pre]), Math.abs(target - nums[pre - 1]));
         }
-
     }
 
     public static void main(String[] args) {
