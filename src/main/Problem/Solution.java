@@ -12,9 +12,10 @@ class Solution {
 
     }
 
-    void run(String  solutionNum) throws Exception{
+    Object run(String  solutionNum) throws Exception{
         System.out.println("==============================");
         System.out.println("运行结果为");
-        problem.getClass().getMethod("solution" + solutionNum).invoke(problem);
+        Object res = problem.getClass().getMethod("solution" + solutionNum).invoke(problem);
+        return res;
     }
 }
