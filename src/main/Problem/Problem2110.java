@@ -5,6 +5,7 @@ public class Problem2110 {
 
     String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
 
+    public int solutionNum = 1;
 
     public List<List<String>> solution1(String[] strs) {
         Map<String, List<String>> map = new HashMap<String, List<String>>();
