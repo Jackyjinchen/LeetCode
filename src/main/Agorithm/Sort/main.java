@@ -46,8 +46,12 @@ public class main {
 //        mergeSort.sort(arr);
 
         // 基数排序
-        RadixSort radixSort = new RadixSort();
-        radixSort.sort(arr);
+//        RadixSort radixSort = new RadixSort();
+//        radixSort.sort(arr);
+
+        // 堆排序
+        HeapSort heapSort = new HeapSort();
+        heapSort.sort(arr);
 
         // 排序后
         System.out.println("排序后");
