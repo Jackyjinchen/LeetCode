@@ -1,8 +1,6 @@
 package Tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTree {
     static class TreeNode {
@@ -55,10 +53,10 @@ public class BinaryTree {
         while (!stack.isEmpty()) {
             root = stack.pop();
             System.out.println(root.val);
-            if (root.left != null) {
+            if (root.right != null) {
                 stack.push(root.right);
             }
-            if (root.right != null) {
+            if (root.left != null) {
                 stack.push(root.left);
             }
         }
@@ -147,7 +145,6 @@ public class BinaryTree {
             }
         }
     }
-
 
     public static void main(String[] args) {
         TreeNode t1 = new TreeNode(1);
