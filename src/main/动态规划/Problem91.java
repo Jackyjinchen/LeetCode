@@ -1,4 +1,3 @@
-import netscape.security.UserTarget;
 
 import java.util.HashSet;
 import java.util.Set;
