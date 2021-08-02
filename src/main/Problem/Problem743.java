@@ -6,7 +6,7 @@ public class Problem743 {
     public static void main(String[] args) {
         int[][] times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
         int n = 4, k = 2;
-        System.out.println(networkDelayTime(times, n, k));
+        System.out.println(networkDelayTime1(times, n, k));
     }
 
     // BFS
@@ -39,6 +39,41 @@ public class Problem743 {
         }
         Arrays.sort(r);
         return r[n] == Integer.MAX_VALUE ? -1 : r[n];
+    }
+
+    // Dijkstra
+    public static int networkDelayTime1(int[][] times, int n, int k) {
+        final int INF = Integer.MAX_VALUE / 2;
+        int[][] g = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            Arrays.fill(g[i], INF);
+        }
+        for (int[] t : times) {
+            int x = t[0] - 1, y = t[1] - 1;
+            g[x][y] = t[2];
+        }
+
+        int[] dist = new int[n];
+        Arrays.fill(dist, INF);
+        dist[k - 1] = 0;
+        boolean[] used = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            int x = -1;
+            for (int y = 0; y < n; ++y) {
+                if (!used[y] && (x == -1 || dist[y] < dist[x])) {
+                    x = y;
+                }
+            }
+            used[x] = true;
+            for (int y = 0; y < n; ++y) {
+                dist[y] = Math.min(dist[y], dist[x] + g[x][y]);
+            }
+            System.out.println(Arrays.toString(used));
+            System.out.println(Arrays.toString(dist));
+        }
+
+        int ans = Arrays.stream(dist).max().getAsInt();
+        return ans == INF ? -1 : ans;
     }
 
 }
