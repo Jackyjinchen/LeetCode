@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/Agorithm" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/Problem" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/动态规划" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
