@@ -1,3 +1,5 @@
+package main.剑指Offer及其他;
+
 // 剑指 Offer 10- I. 斐波那契数列
 public class Offer10I {
     public static void main(String[] args) {
