@@ -21,12 +21,38 @@ public class Problem1894 {
         }
         k %= sum;
         for (int i = 0; i < chalk.length; i++) {
-            if(chalk[i] > k) {
+            if (chalk[i] > k) {
                 res = i;
                 break;
             }
             k -= chalk[i];
         }
         return res;
+    }
+
+    // 前缀和+二分查找
+    public static int chalkReplacer2(int[] chalk, int k) {
+        int n = chalk.length;
+        if (chalk[0] > k) return 0;
+        for (int i = 1; i < n; i++) {
+            chalk[i] += chalk[i - 1];
+            if (chalk[i] > k) return i;
+        }
+        k %= chalk[n - 1];
+        return binarySearch(chalk, k);
+    }
+
+    public static int binarySearch(int[] chalk, int k) {
+        int left = 0, right = chalk.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if(chalk[mid] <= k) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return left;
     }
 }

@@ -1,4 +1,4 @@
-package main.剑指Offer及其他;
+package main.JianZhiOffer;
 
 /**
  * @Version 1.0

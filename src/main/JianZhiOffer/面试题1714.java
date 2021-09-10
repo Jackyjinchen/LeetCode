@@ -1,8 +1,6 @@
-package main.剑指Offer及其他;
+package main.JianZhiOffer;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
