@@ -17,6 +17,7 @@ public class Problem524 {
 
     }
 
+    // 在此基础上可以先排序，然后在直接寻找第一个符合的字符串
     public static String findLongestWord(String s, List<String> dictionary) {
         String res = "";
         for (String word : dictionary) {
